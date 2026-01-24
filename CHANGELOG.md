@@ -15,6 +15,7 @@ Docs: https://docs.clawd.bot
 
 ### Fixes
 - Voice wake: auto-save wake words on blur/submit across iOS/Android and align limits with macOS.
+- Plugins: honor `plugins.slots.memory = "none"` when normalizing config. (#1554) Thanks @andreabadesso.
 - UI: keep the Control UI sidebar visible while scrolling long pages. (#1515) Thanks @pookNast.
 - Tailscale: retry serve/funnel with sudo only for permission errors and keep original failure details. (#1551) Thanks @sweepies.
 - Agents: add CLI log hint to "agent failed before reply" messages. (#1550) Thanks @sweepies.

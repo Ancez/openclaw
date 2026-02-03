@@ -8,9 +8,16 @@ services:
       CLAUDE_AI_SESSION_KEY: ${CLAUDE_AI_SESSION_KEY}
       CLAUDE_WEB_SESSION_KEY: ${CLAUDE_WEB_SESSION_KEY}
       CLAUDE_WEB_COOKIE: ${CLAUDE_WEB_COOKIE}
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      # RVM/NVM environment
+      PATH: /home/node/.nvm/versions/node/v24.0.0/bin:/usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      NVM_DIR: /home/node/.nvm
+      RVM_PATH: /usr/local/rvm
     volumes:
       - ${OPENCLAW_CONFIG_DIR}:/home/node/.openclaw
       - ${OPENCLAW_WORKSPACE_DIR}:/home/node/.openclaw/workspace
+      # Mount your Rails projects for development access
+      - ${RAILS_PROJECTS_DIR:-~/.openclaw/workspace}:/workspace
     ports:
       - "${OPENCLAW_GATEWAY_PORT:-18789}:18789"
       - "${OPENCLAW_BRIDGE_PORT:-18790}:18790"
@@ -37,9 +44,15 @@ services:
       CLAUDE_AI_SESSION_KEY: ${CLAUDE_AI_SESSION_KEY}
       CLAUDE_WEB_SESSION_KEY: ${CLAUDE_WEB_SESSION_KEY}
       CLAUDE_WEB_COOKIE: ${CLAUDE_WEB_COOKIE}
+      # RVM/NVM environment
+      PATH: /home/node/.nvm/versions/node/v24.0.0/bin:/usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      NVM_DIR: /home/node/.nvm
+      RVM_PATH: /usr/local/rvm
     volumes:
       - ${OPENCLAW_CONFIG_DIR}:/home/node/.openclaw
       - ${OPENCLAW_WORKSPACE_DIR}:/home/node/.openclaw/workspace
+      # Mount your Rails projects for development access
+      - ${RAILS_PROJECTS_DIR:-~/.openclaw/workspace}:/workspace
     stdin_open: true
     tty: true
     init: true
